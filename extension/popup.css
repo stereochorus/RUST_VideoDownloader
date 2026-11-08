@@ -1,0 +1,96 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1b1b1f;
+  --muted: #6b6b76;
+  --line: #e6e6ea;
+  --track: #ececf0;
+  --accent: #1565c0;
+  --ok: #2e7d32;
+  --warn: #b26a00;
+  --err: #c62828;
+  --btn-hover: #f1f1f4;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1c20;
+    --fg: #ececf1;
+    --muted: #9a9aa6;
+    --line: #2f2f36;
+    --track: #2c2c33;
+    --accent: #64a8ff;
+    --ok: #66bb6a;
+    --warn: #ffb74d;
+    --err: #ef5350;
+    --btn-hover: #2a2a31;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  width: 400px;
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.4 system-ui, "Segoe UI", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+}
+.status { color: var(--muted); font-size: 12px; }
+.status.ok::before { content: "● "; color: var(--ok); }
+.status.err::before { content: "● "; color: var(--err); }
+
+.banner {
+  margin: 10px 14px 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--err) 14%, transparent);
+  color: var(--fg);
+  font-size: 12px;
+}
+.banner code { font-size: 11px; }
+
+.jobs { list-style: none; margin: 0; padding: 4px 0; max-height: 360px; overflow-y: auto; }
+.job { padding: 8px 14px; border-bottom: 1px solid var(--line); }
+.job:last-child { border-bottom: 0; }
+.row { display: flex; align-items: center; gap: 8px; }
+.name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.meta { color: var(--muted); font-size: 12px; margin-top: 3px; font-variant-numeric: tabular-nums; }
+.meta .error { color: var(--err); }
+
+.bar { height: 5px; margin-top: 6px; border-radius: 3px; background: var(--track); overflow: hidden; }
+.bar > i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .4s; }
+.job.done .bar > i { background: var(--ok); }
+.job.paused .bar > i { background: var(--warn); }
+.job.failed .bar > i, .job.cancelled .bar > i { background: var(--err); }
+
+.actions { display: flex; gap: 2px; flex: none; }
+.actions button {
+  width: 26px; height: 26px;
+  border: 0; border-radius: 6px;
+  background: transparent; color: var(--fg);
+  cursor: pointer; font-size: 13px;
+}
+.actions button:hover { background: var(--btn-hover); }
+
+.empty { color: var(--muted); padding: 18px 14px; margin: 0; text-align: center; }
+
+footer { padding: 10px 14px 12px; border-top: 1px solid var(--line); display: grid; gap: 4px; }
+footer label { font-weight: 600; font-size: 12px; }
+footer input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+}
+footer input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+footer small { color: var(--muted); font-size: 11px; }

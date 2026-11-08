@@ -1,0 +1,17 @@
+[package]
+name = "mdl-cli"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "mdl-cli"
+path = "src/main.rs"
+
+[dependencies]
+mdl-engine = { path = "../engine" }
+anyhow.workspace = true
+tokio.workspace = true
+clap.workspace = true
+indicatif.workspace = true
+mdl-protocol = { path = "../protocol" }
+serde_json.workspace = true

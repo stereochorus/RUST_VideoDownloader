@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>media_downloader</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <strong>media_downloader</strong>
+    <span id="status" class="status">connecting…</span>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <ul id="jobs" class="jobs"></ul>
+  <p id="empty" class="empty" hidden>No downloads yet. Hover a video on any page and click <b>Download video</b>.</p>
+
+  <footer>
+    <label for="saveDir">Save to</label>
+    <input id="saveDir" type="text" spellcheck="false" placeholder="Default: your Downloads folder">
+    <small>Type a full folder path, e.g. D:\Videos. Applies to new downloads.</small>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

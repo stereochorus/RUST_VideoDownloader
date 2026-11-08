@@ -1,0 +1,14 @@
+[package]
+name = "mdl-shim"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "mdl-shim"
+path = "src/main.rs"
+
+[dependencies]
+mdl-protocol = { path = "../protocol" }
+anyhow.workspace = true
+tokio.workspace = true
+serde_json.workspace = true

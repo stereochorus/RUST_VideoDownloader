@@ -1,0 +1,16 @@
+[package]
+name = "mdl-daemon"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "mdl-daemon"
+path = "src/main.rs"
+
+[dependencies]
+mdl-engine = { path = "../engine" }
+mdl-protocol = { path = "../protocol" }
+anyhow.workspace = true
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
